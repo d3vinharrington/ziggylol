@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "homepage": "https://YOUR_USERNAME.github.io/ziggylol",
+  "homepage": "https://d3vinharrington.github.io/ziggylol",
   "scripts": {
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
