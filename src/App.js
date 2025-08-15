@@ -22,18 +22,17 @@ function App() {
     if (query) {
       setInput(query);
       // Auto-execute the command after a short delay
-      setTimeout(() => {
-        const parts = query.trim().split(' ');
-        const command = parts[0];
-        const searchQuery = parts.slice(1).join(' ');
-        const url = getShortcutUrl(command, searchQuery, companyName);
-        
-        if (url) {
-          window.location.href = url;
-        } else {
-          window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-        }
-      }, 100);
+      // Instant redirect for search engine usage
+      const parts = query.trim().split(' ');
+      const command = parts[0];
+      const searchQuery = parts.slice(1).join(' ');
+      const url = getShortcutUrl(command, searchQuery, companyName);
+      
+      if (url) {
+        window.location.href = url;
+      } else {
+        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+      }
     }
   }, [companyName]);
 
