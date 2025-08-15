@@ -16,9 +16,7 @@ function App() {
   const inputRef = useRef(null);
 
   useEffect(() => {
-    inputRef.current?.focus();
-    
-    // Handle URL search parameters
+    // Handle URL search parameters first
     const urlParams = new URLSearchParams(window.location.search);
     const query = urlParams.get('q');
     if (query) {
@@ -38,9 +36,36 @@ function App() {
         } else {
           window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
         }
-      }, 300);
+      }, 500); // Quick but visible loading
+    } else {
+      // Only focus if not redirecting
+      inputRef.current?.focus();
     }
-  }, [companyName]);
+  }, []); // Remove companyName dependency
+
+  // Separate effect for company name changes
+  useEffect(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    const query = urlParams.get('q');
+    if (query && !isRedirecting) {
+      // Re-trigger redirect if company name changes and we have a query
+      setIsRedirecting(true);
+      setRedirectCommand(query);
+      
+      setTimeout(() => {
+        const parts = query.trim().split(' ');
+        const command = parts[0];
+        const searchQuery = parts.slice(1).join(' ');
+        const url = getShortcutUrl(command, searchQuery, companyName);
+        
+        if (url) {
+          window.location.href = url;
+        } else {
+          window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        }
+      }, 500);
+    }
+  }, [companyName, isRedirecting]);
 
   useEffect(() => {
     localStorage.setItem('ziggyCompanyName', companyName);
