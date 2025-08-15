@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/ziggylol/static/css/main.a9dadae8.css",
-    "main.js": "/ziggylol/static/js/main.c29a6d0e.js",
+    "main.js": "/ziggylol/static/js/main.d72f11d7.js",
     "index.html": "/ziggylol/index.html",
     "main.a9dadae8.css.map": "/ziggylol/static/css/main.a9dadae8.css.map",
-    "main.c29a6d0e.js.map": "/ziggylol/static/js/main.c29a6d0e.js.map"
+    "main.d72f11d7.js.map": "/ziggylol/static/js/main.d72f11d7.js.map"
   },
   "entrypoints": [
     "static/css/main.a9dadae8.css",
-    "static/js/main.c29a6d0e.js"
+    "static/js/main.d72f11d7.js"
   ]
 }
