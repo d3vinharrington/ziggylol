@@ -37,7 +37,7 @@ npm run deploy
 ## ⚙️ Browser Setup
 
 Set as default search engine:
-- **URL**: `https://YOUR_USERNAME.github.io/ziggylol/?q=%s`
+- **URL**: `https://d3vinharrington.github.io/ziggylol/?q=%s`
 - **Name**: ZiggyLol
 - **Shortcut**: ziggy
 
