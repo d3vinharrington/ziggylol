@@ -11,6 +11,8 @@ function App() {
     localStorage.getItem('ziggyCompanyName') || 'yourcompany'
   );
   const [showAdmin, setShowAdmin] = useState(false);
+  const [isRedirecting, setIsRedirecting] = useState(false);
+  const [redirectCommand, setRedirectCommand] = useState('');
   const inputRef = useRef(null);
 
   useEffect(() => {
@@ -21,18 +23,22 @@ function App() {
     const query = urlParams.get('q');
     if (query) {
       setInput(query);
-      // Auto-execute the command after a short delay
-      // Instant redirect for search engine usage
-      const parts = query.trim().split(' ');
-      const command = parts[0];
-      const searchQuery = parts.slice(1).join(' ');
-      const url = getShortcutUrl(command, searchQuery, companyName);
+      setIsRedirecting(true);
+      setRedirectCommand(query);
       
-      if (url) {
-        window.location.href = url;
-      } else {
-        window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
-      }
+      // Show loading briefly, then redirect
+      setTimeout(() => {
+        const parts = query.trim().split(' ');
+        const command = parts[0];
+        const searchQuery = parts.slice(1).join(' ');
+        const url = getShortcutUrl(command, searchQuery, companyName);
+        
+        if (url) {
+          window.location.href = url;
+        } else {
+          window.location.href = `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+        }
+      }, 300);
     }
   }, [companyName]);
 
@@ -113,6 +119,24 @@ function App() {
       window.open(url, '_blank');
     }
   };
+
+  if (isRedirecting) {
+    return (
+      <div className="loading-page">
+        <div className="loading-container">
+          <div className="logo">
+            <div className="logo-ziggy">Z</div>
+            <div className="logo-spinner"></div>
+          </div>
+          <h2>ZiggyLol</h2>
+          <p>Redirecting to: <code>{redirectCommand}</code></p>
+          <div className="loading-bar">
+            <div className="loading-progress"></div>
+          </div>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="app">
