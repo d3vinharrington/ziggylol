@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/ziggylol/static/css/main.d9ed18b7.css",
+    "main.js": "/ziggylol/static/js/main.3714a7bb.js",
+    "index.html": "/ziggylol/index.html",
+    "main.d9ed18b7.css.map": "/ziggylol/static/css/main.d9ed18b7.css.map",
+    "main.3714a7bb.js.map": "/ziggylol/static/js/main.3714a7bb.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.d9ed18b7.css",
+    "static/js/main.3714a7bb.js"
+  ]
+}
