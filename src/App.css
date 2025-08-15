@@ -1,0 +1,247 @@
+* {
+  box-sizing: border-box;
+}
+
+.app {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.container {
+  max-width: 800px;
+  width: 100%;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin: 0 0 10px 0;
+  font-weight: 700;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.header p {
+  font-size: 1.2rem;
+  margin: 0;
+  opacity: 0.9;
+}
+
+.search-container {
+  position: relative;
+  margin-bottom: 40px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 20px 24px;
+  font-size: 18px;
+  border: none;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.95);
+  color: #333;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  outline: none;
+  transition: all 0.3s ease;
+}
+
+.search-input:focus {
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+  transform: translateY(-2px);
+}
+
+.search-input::placeholder {
+  color: #666;
+}
+
+.suggestions {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 12px;
+  margin-top: 8px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  overflow: hidden;
+  z-index: 1000;
+}
+
+.suggestion {
+  padding: 16px 20px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  transition: background-color 0.2s ease;
+}
+
+.suggestion:last-child {
+  border-bottom: none;
+}
+
+.suggestion:hover,
+.suggestion.selected {
+  background: rgba(30, 60, 114, 0.1);
+}
+
+.suggestion-command {
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-weight: bold;
+  color: #1e3c72;
+  font-size: 16px;
+}
+
+.suggestion-name {
+  font-weight: 600;
+  color: #333;
+  margin: 4px 0;
+}
+
+.suggestion-description {
+  font-size: 14px;
+  color: #666;
+}
+
+.help {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+}
+
+.help h3 {
+  margin: 0 0 20px 0;
+  font-size: 1.3rem;
+  color: white;
+}
+
+.command-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+}
+
+.command-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 0;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 14px;
+}
+
+.command-item code {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-family: 'Monaco', 'Courier New', monospace;
+  font-weight: bold;
+  color: white;
+  font-size: 12px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.settings {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 12px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.settings label {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: white;
+  font-weight: 500;
+}
+
+.company-input {
+  padding: 8px 12px;
+  border: none;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  font-size: 14px;
+  min-width: 150px;
+}
+
+.company-input:focus {
+  outline: 2px solid rgba(255, 255, 255, 0.5);
+}
+
+.admin-btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  backdrop-filter: blur(10px);
+}
+
+.admin-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-1px);
+}
+
+.keyboard-shortcuts {
+  text-align: center;
+  margin-top: 20px;
+  opacity: 0.7;
+}
+
+.keyboard-shortcuts p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.keyboard-shortcuts kbd {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 12px;
+  margin: 0 2px;
+}
+
+@media (max-width: 768px) {
+  .header h1 {
+    font-size: 2.5rem;
+  }
+  
+  .search-input {
+    padding: 16px 20px;
+    font-size: 16px;
+  }
+  
+  .command-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .settings {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .settings label {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}

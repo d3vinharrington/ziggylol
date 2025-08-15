@@ -1,0 +1,214 @@
+.admin-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  padding: 20px;
+}
+
+.admin-panel {
+  background: white;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+}
+
+.admin-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 20px 30px;
+  background: #1e3c72;
+  color: white;
+}
+
+.admin-header h2 {
+  margin: 0;
+  font-size: 1.5rem;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 24px;
+  cursor: pointer;
+  padding: 0;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.2s ease;
+}
+
+.close-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.admin-content {
+  padding: 30px;
+  max-height: calc(90vh - 80px);
+  overflow-y: auto;
+}
+
+.shortcuts-list h3,
+.add-new-section h3 {
+  margin: 0 0 20px 0;
+  color: #333;
+  font-size: 1.2rem;
+}
+
+.add-new-section {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+}
+
+.shortcut-editor {
+  background: #f8f9fa;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 16px;
+  border: 1px solid #e9ecef;
+}
+
+.shortcut-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 12px;
+}
+
+.input-small {
+  width: 120px;
+}
+
+.input-medium {
+  flex: 1;
+  min-width: 200px;
+}
+
+.input-full {
+  width: 100%;
+  margin-bottom: 12px;
+}
+
+.input-full:last-child {
+  margin-bottom: 0;
+}
+
+.admin-panel input {
+  padding: 10px 14px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 14px;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.admin-panel input:focus {
+  outline: none;
+  border-color: #1e3c72;
+  box-shadow: 0 0 0 2px rgba(30, 60, 114, 0.1);
+}
+
+.remove-btn,
+.add-btn,
+.save-btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.remove-btn {
+  background: #dc3545;
+  color: white;
+  min-width: 80px;
+}
+
+.remove-btn:hover {
+  background: #c82333;
+}
+
+.add-btn {
+  background: #28a745;
+  color: white;
+  min-width: 80px;
+}
+
+.add-btn:hover {
+  background: #218838;
+}
+
+.save-btn {
+  background: #1e3c72;
+  color: white;
+  padding: 12px 24px;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.save-btn:hover {
+  background: #2a5298;
+}
+
+.admin-actions {
+  margin-top: 40px;
+  padding-top: 30px;
+  border-top: 2px solid #eee;
+  text-align: center;
+}
+
+.help-text {
+  margin-top: 12px;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .admin-overlay {
+    padding: 10px;
+  }
+  
+  .admin-panel {
+    max-height: 95vh;
+  }
+  
+  .admin-header {
+    padding: 15px 20px;
+  }
+  
+  .admin-content {
+    padding: 20px;
+  }
+  
+  .shortcut-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+  
+  .input-small,
+  .input-medium {
+    width: 100%;
+  }
+  
+  .remove-btn,
+  .add-btn {
+    margin-top: 10px;
+  }
+}
